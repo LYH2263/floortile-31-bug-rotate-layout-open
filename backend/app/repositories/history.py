@@ -72,10 +72,10 @@ def get_run(run_id: int):
         ).fetchone()
         if not row:
             return None
-        from app.services.rotate_open import refresh_layout_on_open
-
         d = dict(row)
+        # The stored snapshot (rotated/order_count/layout) is returned as
+        # written; it is never recomputed against live defaults on open.
         d["result"] = json.loads(d.pop("result_json"))
-        return refresh_layout_on_open(d)
+        return d
     finally:
         conn.close()

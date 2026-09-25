@@ -1,7 +1,4 @@
-"""Floor tile order count: area method + optional grid layout preview.
-
-Open-path consumers may call layout_preview independently of order_count.
-"""
+"""Floor tile order count: area method + optional grid layout preview."""
 
 from app.engines.helpers import ceil_units
 
